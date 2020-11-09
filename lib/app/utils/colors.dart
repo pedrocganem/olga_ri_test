@@ -10,6 +10,7 @@ const kSecondaryTextColor = Color(0xFF938F85);
 const kPrimaryButtonTextColor = Colors.white;
 const kSecondaryButtonTextColor = Colors.black;
 const kErrorTextColor = Color(0xFFFD5B2A);
+const kTextFieldHintColor = Color(0xFF938F85);
 
 //Button Colors
 const kPrimaryButtonColor = Color(0xFFF9CA07);

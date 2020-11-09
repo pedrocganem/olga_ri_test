@@ -51,7 +51,9 @@ class LoginScreen extends StatelessWidget {
             width: pWidth(327),
             child: RaisedButton(
               color: Color(0xFFF9CA07),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, '/LoginEmailView');
+              },
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(50)),
               child: Text(

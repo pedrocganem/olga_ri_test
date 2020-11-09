@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:olga_ri_test2/app/navigator.dart';
-import 'package:olga_ri_test2/app/pages/login/login_view.dart';
 import 'package:olga_ri_test2/app/utils/theme.dart';
 
 void main() {

@@ -8,6 +8,7 @@ ThemeData mainThemeData(BuildContext context) {
     scaffoldBackgroundColor: kSecondaryBackgroudColor,
     appBarTheme: appBarTheme,
     accentColor: kPrimaryBackgroudColor,
+    buttonColor: kPrimaryButtonColor,
     buttonTheme: ButtonThemeData(buttonColor: kPrimaryButtonColor),
     textTheme: GoogleFonts.firaSansTextTheme().copyWith(
         button: TextStyle(
@@ -27,7 +28,20 @@ ThemeData mainThemeData(BuildContext context) {
           color: kPrimaryTextColor,
           fontSize: 20,
         ),
-        headline3: TextStyle(color: kPrimaryTextColor, fontSize: 12)),
+        headline3: TextStyle(color: kPrimaryTextColor, fontSize: 12),
+        headline4: TextStyle(
+            color: kPrimaryTextColor,
+            fontSize: 20,
+            fontWeight: FontWeight.bold),
+        headline5: TextStyle(
+            color: kPrimaryTextColor,
+            fontSize: 20,
+            fontWeight: FontWeight.w300),
+        subtitle1: TextStyle(
+            color: kTextFieldHintColor,
+            fontSize: 18,
+            fontWeight: FontWeight.normal,
+            fontStyle: FontStyle.italic)),
   );
 }
 
