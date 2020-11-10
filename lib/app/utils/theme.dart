@@ -37,6 +37,12 @@ ThemeData mainThemeData(BuildContext context) {
             color: kPrimaryTextColor,
             fontSize: 20,
             fontWeight: FontWeight.w300),
+            headline6: TextStyle(
+              color: Colors.black,
+              fontSize: 14,
+              fontWeight: FontWeight.normal,
+              decoration: TextDecoration.underline,
+            ),
         subtitle1: TextStyle(
             color: kTextFieldHintColor,
             fontSize: 18,

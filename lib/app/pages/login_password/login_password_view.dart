@@ -1,29 +1,32 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:olga_ri_test2/app/pages/login_email/login_controller.dart';
 import 'package:olga_ri_test2/app/utils/size_settings.dart';
 
-class LoginEmailView extends StatefulWidget {
+class LoginPasswordView extends StatefulWidget {
   @override
-  _LoginEmailViewState createState() => _LoginEmailViewState();
+  _LoginPasswordViewState createState() => _LoginPasswordViewState();
 }
 
-class _LoginEmailViewState extends State<LoginEmailView> {
+class _LoginPasswordViewState extends State<LoginPasswordView> {
   UserController _controller = UserController();
   SizeSettings _size = SizeSettings();
-
+  
   @override
   Widget build(BuildContext context) {
-    _emailFormField(Function() errorText) {
+    _size.init(context); 
+
+     _emailFormField(Function() errorText) {
       return SizedBox(
         width: pWidth(320),
         child: TextFormField(
           style: Theme.of(context).textTheme.headline2,
-          keyboardType: TextInputType.emailAddress,
+          keyboardType: TextInputType.visiblePassword,
           autocorrect: false,
           enableSuggestions: false,
-          onChanged: _controller.user.changeEmail,
+          onChanged: _controller.user.changePassword,
+          obscureText: true,
           decoration: InputDecoration(
             border: InputBorder.none,
             focusedBorder: InputBorder.none,
@@ -31,14 +34,13 @@ class _LoginEmailViewState extends State<LoginEmailView> {
             disabledBorder: InputBorder.none,
             errorBorder: InputBorder.none,
             errorText: errorText == null ? null : errorText(),
-            hintText: 'Digite aqui',
+            hintText: '**************',
             hintStyle: Theme.of(context).textTheme.subtitle1,
           ),
         ),
       );
     }
 
-    _size.init(context);
     return Scaffold(
       resizeToAvoidBottomPadding: true,
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
@@ -72,11 +74,11 @@ class _LoginEmailViewState extends State<LoginEmailView> {
                 textAlign: TextAlign.left,
                 text: TextSpan(children: [
                   TextSpan(
-                    text: 'Para comecar,\nqual seu ',
+                    text: 'Olá, João Pinedo :)\nAgora, insira sua ',
                     style: Theme.of(context).textTheme.headline5,
                   ),
                   TextSpan(
-                      text: 'e-mail?',
+                      text: 'senha',
                       style: Theme.of(context).textTheme.headline4),
                 ])),
           ),
@@ -88,28 +90,27 @@ class _LoginEmailViewState extends State<LoginEmailView> {
                 width: pWidth(320),
                 child: Observer(
                   builder: (_) {
-                    return _emailFormField(_controller.isEmailValid);
+                    return _emailFormField(_controller.isPasswordValid);
                   },
                 )),
           ),
-
-          //
           Positioned(
-            width: pWidth(75),
-            bottom: pHeight(80),
-            left: pWidth(0),
-            child: Divider(
-              thickness: 2,
-              color: Theme.of(context).buttonColor,
-            ),
-          ),
+            left: pWidth(30),
+            top: pHeight(200),
+            child: GestureDetector(
+            onTap: () {
+            },
+            child: Text('Esqueci minha senha',
+            style: Theme.of(context).textTheme.headline6,),
+          ),),
           //
           Positioned(
             width: pWidth(375),
             bottom: pHeight(80),
             left: pWidth(0),
             child: Divider(
-              color: Color(0xFFF1EFE7),
+              thickness: 2,
+              color: Theme.of(context).buttonColor,
             ),
           ),
           //
@@ -136,7 +137,7 @@ class _LoginEmailViewState extends State<LoginEmailView> {
                           Navigator.pop(context);
                         },
                         child: Text(
-                          'CANCELAR',
+                          'ANTERIOR',
                           style: Theme.of(context).textTheme.bodyText1,
                         ),
                       ),
@@ -150,13 +151,13 @@ class _LoginEmailViewState extends State<LoginEmailView> {
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(50)),
                               color: Theme.of(context).buttonColor,
-                              onPressed: _controller.emailValidator
+                              onPressed: _controller.passwordValidator
                                   ? () {
-                                      Navigator.pushNamed(context, '/LoginPasswordView'); 
+                                      Navigator.pushNamed(context, 'routeName'); 
                                     }
                                   : null,
                               child: Text(
-                                'PROXIMO',
+                                'ENTRAR',
                                 style: Theme.of(context).textTheme.button,
                               ),
                             );

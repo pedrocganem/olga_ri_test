@@ -8,16 +8,26 @@ abstract class _UserControllerBase with Store {
   Users user = Users();
 
   String isEmailValid() {
-    if (user.email.isEmpty || !user.email.contains('joao.pinedo@olgary')) {
+    if (!user.email.contains('joao.pinedo@gmail.com')) {
       return 'EMAIL INVALIDO. TENTE DE NOVO';
     }
-    return null;
+    return '';
   }
 
   String isPasswordValid() {
     if (user.password.isEmpty || !user.password.contains('12345678')) {
       return 'SENHA INVALIDA. TENTE DE NOVO';
     }
-    return null;
+    return '';
+  }
+
+  @computed
+  bool get emailValidator {
+    return isEmailValid() == '';
+  }
+
+  @computed
+  bool get passwordValidator {
+    return isPasswordValid() == '';
   }
 }
